@@ -16,6 +16,10 @@ class IndexController extends Controller
         //
         return view('public.index');
     }
+    public function verArticulo() {
+        echo "HOLA";
+        exit();
+    }
 
     /**
      * Show the form for creating a new resource.

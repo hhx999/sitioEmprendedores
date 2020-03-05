@@ -11,9 +11,19 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+// SECCION DE USUARIOS
+
+//Inicio
+
+Route::get('/','IndexController@index');
+
+//Articulos
+Route::get('/{$categoria}/{$id_post}','IndexController@verArticulo');
+
 
 Route::get('/admin', function () {
     return view('admin');
@@ -63,13 +73,3 @@ Route::get('/admin/editarApariencia/{$id}','AdminAparienciaController@edit');
 
 Route::get('/admin/verPublicidad','AdminPublicidadController@index');
 Route::get('/admin/editarPublicidad/{$id}','AdminPublicidadController@edit');
-
-
-// SECCION DE USUARIOS
-
-//Inicio
-
-Route::get('/','IndexController@index');
-
-//Articulos
-Route::get('/{$categoria}/{$id_post}','IndexController@verArticulo');

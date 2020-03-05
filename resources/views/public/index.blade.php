@@ -152,7 +152,7 @@
 				</div>
 				<div class="article-body">
 					<ul class="article-info">
-						<li class="article-category"><a href="#">Novedad</a></li>
+						<li class="article-category"><a href="#">Novedadt</a></li>
 						<li class="article-type"><i class="fa fa-camera"></i></li>
 					</ul>
 					<h2 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h2>
