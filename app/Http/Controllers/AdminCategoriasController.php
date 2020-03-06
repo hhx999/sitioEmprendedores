@@ -62,20 +62,11 @@ class AdminCategoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
+        $categoria = Categoria::findOrFail($id);
+        return view('admin.categorias.edit', ['categoria' => $categoria]);
     }
 
     /**
@@ -88,6 +79,18 @@ class AdminCategoriasController extends Controller
     public function update(Request $request, $id)
     {
         //
+        DB::beginTransaction();
+        try {
+            $categoria = Categoria::findOrFail($id);
+            $categoria->nombre = $request->nombre;
+            $categoria->descripcion = $request->descripcion;
+            $categoria->save();
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollback();
+            return redirect()->back()->with(['success' => 'Hubo un problema al crear el registro.']);
+        }
+        return redirect()->back()->with(['success' => 'Registro actualizado correctamente!']);
     }
 
     /**

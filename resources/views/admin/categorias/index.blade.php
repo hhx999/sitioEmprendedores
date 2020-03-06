@@ -41,7 +41,7 @@
                         <td>{{$categoria->id}}</td>
                         <td>{{$categoria->nombre}}</td>
                         <td>{{$categoria->descripcion}}</td>
-                        <td><i class="nav-icon fas fa-edit"></i> <i class="nav-icon fas fa-trash"></i></td>
+                        <td><a href="{{route('editarCategoria',$categoria->id)}}"><i class="nav-icon fas fa-edit"></a></i> <i class="nav-icon fas fa-trash"></i></td>
                       </tr>
                     @endforeach
                   </tbody>
