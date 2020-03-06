@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Categoria;
 
 class AdminCategoriasController extends Controller
 {
@@ -14,7 +15,9 @@ class AdminCategoriasController extends Controller
     public function index()
     {
         //
-        return view('admin.categorias.index');
+        $categorias = Categoria::all();
+
+        return view('admin.categorias.index', ['categorias' => $categorias]);
     }
 
     /**
