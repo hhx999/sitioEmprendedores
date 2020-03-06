@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use Exception;
 use Illuminate\Http\Request;
+
 use App\Categoria;
 
 class AdminCategoriasController extends Controller
@@ -16,7 +19,6 @@ class AdminCategoriasController extends Controller
     {
         //
         $categorias = Categoria::all();
-
         return view('admin.categorias.index', ['categorias' => $categorias]);
     }
 
@@ -28,6 +30,7 @@ class AdminCategoriasController extends Controller
     public function create()
     {
         //
+        return view('admin.categorias.create');
     }
 
     /**
@@ -39,6 +42,18 @@ class AdminCategoriasController extends Controller
     public function store(Request $request)
     {
         //
+        DB::beginTransaction();
+        try {
+            $categoria = new Categoria;
+            $categoria->nombre = $request->nombre;
+            $categoria->descripcion = $request->descripcion;
+            $categoria->save();
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollback();
+            return redirect()->back()->with(['success' => 'Hubo un problema al crear el registro.']);
+        }
+        return redirect()->back()->with(['success' => 'Registro creado correctamente!']);
     }
 
     /**

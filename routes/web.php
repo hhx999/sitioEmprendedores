@@ -47,8 +47,10 @@ Route::get('/admin/eliminarConsultas/{$id}','AdminConsultasController@delete');
 
 Route::get('/admin/verCategorias','AdminCategoriasController@index');
 Route::get('/admin/crearCategorias','AdminCategoriasController@create');
-Route::get('/admin/editarCategorias/{$id}','AdminCategoriasController@edit');
-Route::get('/admin/eliminarCategorias/{$id}','AdminCategoriasController@delete');
+Route::post('/admin/crearCategorias','AdminCategoriasController@store')->name('agregarCategoria');
+Route::get('/admin/editarCategorias/{$id}','AdminCategoriasController@show');
+Route::put('/admin/editarCategorias/{$id}','AdminCategoriasController@update')->name('editarCategoria');
+Route::delete('/admin/eliminarCategorias/{$id}','AdminCategoriasController@destroy')->name('eliminarCategoria');
 
 //Sección de rubros
 
