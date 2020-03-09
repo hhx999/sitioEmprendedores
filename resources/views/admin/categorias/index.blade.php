@@ -7,7 +7,39 @@
 @stop
 
 @section('content')
+<!-- Modal -->
+<div id="categoriaEliminar" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Eliminar categoría</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form method="post" name="eliminarCategoria" action="{{route('eliminarCategoria')}}">
+        @csrf
+                 <div class="card-body">
+                  <input type="hidden" name="idEliminar" id="idEliminar">
+                   <p id="mensajeModalEliminar"></p>
+                </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-danger">Eliminar Categoría</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- End Modal -->
+@if (\Session::has('success'))
+  <div class="col-md-12">
+       <p> {!! \Session::get('success') !!}</p>
+  </div>
+  @endif
 <div class="row mb-2">
           <div class="col-12">
             <div class="card">
@@ -41,7 +73,8 @@
                         <td>{{$categoria->id}}</td>
                         <td>{{$categoria->nombre}}</td>
                         <td>{{$categoria->descripcion}}</td>
-                        <td><a href="{{route('editarCategoria',$categoria->id)}}"><i class="nav-icon fas fa-edit"></a></i> <i class="nav-icon fas fa-trash"></i></td>
+                        <td><a href="{{route('editarCategoria',$categoria->id)}}"><i class="nav-icon fas fa-edit"></a></i><a class="categoriaEliminar" data-toggle="modal" data-target="#categoriaEliminar"><i class="nav-icon fas fa-trash"></i></a>
+                        </td>
                       </tr>
                     @endforeach
                   </tbody>
@@ -60,5 +93,12 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script> 
+      $('.categoriaEliminar').on('click', function() {
+          var id = $(this).parents("tr").find("td").eq(0).text();
+          $('#idEliminar').val(undefined);
+          $('#idEliminar').val(id);
+          $('#mensajeModalEliminar').text('Desea eliminar la categoría con id '+id+'?');
+      })
+    </script>
 @stop

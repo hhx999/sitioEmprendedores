@@ -19,16 +19,14 @@
 // SECCION DE USUARIOS
 
 //Inicio
-
 Route::get('/','IndexController@index');
+
+//InicioIndex
+Route::get('/admin','AdminIndexController@index');
 
 //Articulos
 Route::get('/{$categoria}/{$id_post}','IndexController@verArticulo');
 
-
-Route::get('/admin', function () {
-    return view('admin');
-});
 
 // Sección de artículos
 
@@ -51,7 +49,7 @@ Route::get('/admin/crearCategorias','AdminCategoriasController@create');
 Route::post('/admin/crearCategorias','AdminCategoriasController@store')->name('agregarCategoria');
 Route::get('/admin/editarCategorias/{id}','AdminCategoriasController@edit')->name('editarCategoria');
 Route::post('/admin/actualizarCategorias/{id}','AdminCategoriasController@update')->name('actualizarCategoria');
-Route::delete('/admin/eliminarCategorias/{id}','AdminCategoriasController@destroy')->name('eliminarCategoria');
+Route::post('/admin/eliminarCategorias/','AdminCategoriasController@destroy')->name('eliminarCategoria');
 
 //Sección de rubros
 

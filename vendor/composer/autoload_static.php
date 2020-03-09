@@ -419,6 +419,7 @@ class ComposerStaticInite4bf7ca47aa902cb95371081701f1141
         'App\\Http\\Controllers\\AdminArticulosController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminArticulosController.php',
         'App\\Http\\Controllers\\AdminCategoriasController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminCategoriasController.php',
         'App\\Http\\Controllers\\AdminConsultasController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminConsultasController.php',
+        'App\\Http\\Controllers\\AdminIndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminIndexController.php',
         'App\\Http\\Controllers\\AdminRubrosController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminRubrosController.php',
         'App\\Http\\Controllers\\AdminUsuariosController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminUsuariosController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',

@@ -99,8 +99,10 @@ class AdminCategoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
         //
+        Categoria::destroy($request->idEliminar);
+        return redirect()->back()->with(['success' => 'Registro eliminado correctamente!']);
     }
 }

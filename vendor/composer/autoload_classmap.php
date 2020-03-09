@@ -15,6 +15,7 @@ return array(
     'App\\Http\\Controllers\\AdminArticulosController' => $baseDir . '/app/Http/Controllers/AdminArticulosController.php',
     'App\\Http\\Controllers\\AdminCategoriasController' => $baseDir . '/app/Http/Controllers/AdminCategoriasController.php',
     'App\\Http\\Controllers\\AdminConsultasController' => $baseDir . '/app/Http/Controllers/AdminConsultasController.php',
+    'App\\Http\\Controllers\\AdminIndexController' => $baseDir . '/app/Http/Controllers/AdminIndexController.php',
     'App\\Http\\Controllers\\AdminRubrosController' => $baseDir . '/app/Http/Controllers/AdminRubrosController.php',
     'App\\Http\\Controllers\\AdminUsuariosController' => $baseDir . '/app/Http/Controllers/AdminUsuariosController.php',
     'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
