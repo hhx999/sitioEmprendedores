@@ -19,6 +19,7 @@ class CreateArticulosTable extends Migration
             $table->string('subtitulo')->nullable();
             $table->string('copete');
             $table->text('cuerpo');
+            $table->bigInteger('artportada_id')->unsigned();
             $table->bigInteger('categoria_id')->unsigned();
             $table->bigInteger('usuario_id')->unsigned();
             $table->timestamps();

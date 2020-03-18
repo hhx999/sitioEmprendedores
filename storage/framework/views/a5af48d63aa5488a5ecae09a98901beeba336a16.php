@@ -35,34 +35,16 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>183</td>
-                      <td>Administrador</td>
-                      <td>11-7-2014</td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                      <td><i class="nav-icon fas fa-edit"></i> <i class="nav-icon fas fa-trash"></i></td>
-                    </tr>
-                    <tr>
-                      <td>219</td>
-                      <td>Administrador</td>
-                      <td>11-7-2014</td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                      <td><i class="nav-icon fas fa-edit"></i> <i class="nav-icon fas fa-trash"></i></td>
-                    </tr>
-                    <tr>
-                      <td>657</td>
-                      <td>Usuario administrador</td>
-                      <td>11-7-2014</td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                      <td><i class="nav-icon fas fa-edit"></i> <i class="nav-icon fas fa-trash"></i></td>
-                    </tr>
-                    <tr>
-                      <td>175</td>
-                      <td>Administrador</td>
-                      <td>11-7-2014</td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                      <td><i class="nav-icon fas fa-edit"></i> <i class="nav-icon fas fa-trash"></i></td>
-                    </tr>
+                    <?php $__currentLoopData = $articulos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $articulo): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      <tr>
+                        <td><?php echo e($articulo->id); ?></td>
+                        <td><?php echo e($articulo->verUsuario); ?></td>
+                        <td><?php echo e($articulo->created_at); ?></td>
+                        <td><?php echo e($articulo->titulo); ?></td>
+                        <td><a href="<?php echo e(route('editarArticulo',$articulo->id)); ?>"><i class="nav-icon fas fa-edit"></a></i><a class="articuloEliminar" data-toggle="modal" data-target="#articuloEliminar"><i class="nav-icon fas fa-trash"></i></a>
+                        </td>
+                      </tr>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   </tbody>
                 </table>
               </div>

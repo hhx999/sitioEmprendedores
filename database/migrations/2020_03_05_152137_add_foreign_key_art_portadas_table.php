@@ -15,7 +15,6 @@ class AddForeignKeyArtPortadasTable extends Migration
     {
         Schema::table('art_portadas', function (Blueprint $table) {
             //
-            $table->foreign('articulo_id', 'FK_ArticuloPortada')->references('id')->on('articulos')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('multimedia_id', 'FK_MultimediaPortada')->references('id')->on('multimedia')->onUpdate('cascade')->onDelete('cascade');
         });
     }
@@ -29,7 +28,6 @@ class AddForeignKeyArtPortadasTable extends Migration
     {
         Schema::table('art_portadas', function (Blueprint $table) {
             //
-            $table->dropForeign('FK_ArticuloPortada');
             $table->dropForeign('FK_MultimediaPortada');
         });
     }

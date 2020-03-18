@@ -16,7 +16,6 @@ class CreateArtPortadasTable extends Migration
         Schema::create('art_portadas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('descripcion');
-            $table->bigInteger('articulo_id')->unsigned();
             $table->bigInteger('multimedia_id')->unsigned();
             $table->timestamps();
         });

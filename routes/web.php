@@ -32,8 +32,9 @@ Route::get('/{$categoria}/{$id_post}','IndexController@verArticulo');
 
 Route::get('/admin/verArticulos','AdminArticulosController@index');
 Route::get('/admin/crearArticulos','AdminArticulosController@create');
-Route::get('/admin/editarArticulos/{id}','AdminArticulosController@edit');
-Route::get('/admin/eliminarArticulos/{id}','AdminArticulosController@delete');
+Route::post('/admin/crearArticulos','AdminArticulosController@store')->name('agregarArticulo');
+Route::get('/admin/editarArticulos/{id}','AdminArticulosController@edit')->name('editarArticulo');
+Route::get('/admin/eliminarArticulos/{id}','AdminArticulosController@delete')->name('eliminarArticulo');
 
 //Sección de consultas
 

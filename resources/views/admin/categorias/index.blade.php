@@ -12,27 +12,26 @@
   <div class="modal-dialog">
 
     <!-- Modal content-->
+<form method="post" name="eliminarCategoria" action="{{route('eliminarCategoria')}}">
     <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Eliminar categoría</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <form method="post" name="eliminarCategoria" action="{{route('eliminarCategoria')}}">
-        @csrf
-                 <div class="card-body">
-                  <input type="hidden" name="idEliminar" id="idEliminar">
-                   <p id="mensajeModalEliminar"></p>
-                </div>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-danger">Eliminar Categoría</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        </form>
-      </div>
+        <div class="modal-header">
+          <h4 class="modal-title">Eliminar categoría</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          @csrf
+                   <div class="card-body">
+                    <input type="hidden" name="idEliminar" id="idEliminar">
+                     <p id="mensajeModalEliminar"></p>
+                  </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger">Eliminar Categoría</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
     </div>
-
-  </div>
+</form>
+</div>
 </div>
 <!-- End Modal -->
 @if (\Session::has('success'))

@@ -8,37 +8,51 @@
 
 @section('content')
 <div class="row">
+  @if (\Session::has('success'))
+  <div class="col-md-12">
+       <p> {!! \Session::get('success') !!}</p>
+  </div>
+  @endif
           <div class="col-md-12">
+            <form method="post" name="agregarArticulo" action="{{route('agregarArticulo')}}" enctype="multipart/form-data">
+                @csrf
              <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Título</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingresar título del artículo...">
+                    <label for="titulo">Título</label>
+                    <input type="text" name="titulo" class="form-control" id="titulo" placeholder="Ingresar título del artículo...">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Copete</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingresar copete...">
+                    <label for="copete">Copete</label>
+                    <input type="text" name="copete" class="form-control" id="copete" placeholder="Ingresar copete...">
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputFile">Imagen de portada</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Elegir imagen</label>
+                  <div class="card card-primary">
+                      <div class="card-header">
+                        <h3 class="card-title">Portada</h3>
                       </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text" id="">Subir</span>
+                      <div class="card-body">
+                        <div class="form-group">
+                          <label for="descripcionPortada">Descripción de la portada</label>
+                          <input type="text" name="descripcionPortada" class="form-control" id="descripcionPortada" placeholder="Ingresar de descripcion portada...">
+                          <label for="portada">Imagen de portada</label>
+                          <div class="input-group">
+                            <div class="custom-file">
+                              <input name="portada" type="file" class="custom-file-input" id="portada">
+                              <label class="custom-file-label" for="portada">Elegir imagen</label>
+                            </div>
+                            <div class="input-group-append">
+                              <span class="input-group-text" id="">Subir</span>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
                   <div class="form-group">
                         <label>Categoría</label>
-                        <select class="custom-select">
+                        <select class="custom-select" name="categoria">
                           <option selected disabled>Elegir categoría...</option>
-                          <option>option 1</option>
-                          <option>option 2</option>
-                          <option>option 3</option>
-                          <option>option 4</option>
-                          <option>option 5</option>
+                          @foreach($categorias as $categoria)
+                          <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                          @endforeach
                         </select>
                   </div>
             </div>
@@ -47,7 +61,6 @@
             <div class="card-header">
               <h3 class="card-title">
                 Ingresar artículo
-                <small>Categoría</small>
               </h3>
               <!-- tools box -->
               <div class="card-tools">
@@ -60,7 +73,7 @@
             <!-- /.card-header -->
             <div class="card-body pad">
               <div class="mb-3">
-                <textarea class="textarea" placeholder="Place some text here"
+                <textarea name="cuerpo" class="textarea" placeholder="Place some text here"
                           style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
               </div>
               <p class="text-sm mb-0">
@@ -73,6 +86,7 @@
               <button type="submit" class="btn btn-primary">Agregar artículo</button>
           </div>
         </div>
+        </form>
 
 @stop
 
