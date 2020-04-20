@@ -14,9 +14,9 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>{{ Helpers::formatDateToEsp() }}</h3>
 
-                <p>Artículos</p>
+                <p>Artíc</p>
               </div>
               <div class="icon">
                 <i class="ion ion-document-text"></i>

@@ -17,9 +17,11 @@ class CreateUsuariosTable extends Migration
             $table->bigIncrements('id');
             $table->string('nombre');
             $table->string('apellido');
+            $table->string('avatar',500)->nullable();
             $table->string('fecha_nacimiento');
-            $table->bigInteger('rubro_id')->unsigned();
-            $table->bigInteger('cargo_id')->unsigned();
+            $table->string('password');
+            $table->bigInteger('rubro_id')->unsigned()->nullable();
+            $table->bigInteger('cargo_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

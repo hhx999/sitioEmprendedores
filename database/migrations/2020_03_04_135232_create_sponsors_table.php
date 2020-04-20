@@ -17,7 +17,7 @@ class CreateSponsorsTable extends Migration
             $table->bigIncrements('id');
             $table->string('nombre');
             $table->string('descripcion');
-            $table->bigInteger('multimedia_id')->unsigned();
+            $table->string('imagen',500);
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@ class CreatePublicidadsTable extends Migration
         Schema::create('publicidads', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('descripcion');
-            $table->bigInteger('multimedia_id')->unsigned();
+            $table->string('imagen',500);
             $table->timestamps();
         });
     }

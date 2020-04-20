@@ -54,6 +54,27 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+        'portadas' => [
+            'driver' => 'local',
+            //'root' => storage_path('app/public'),
+            'root' => public_path('img/portadas'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+        'publicidades' => [
+            'driver' => 'local',
+            //'root' => storage_path('app/public'),
+            'root' => public_path('img/publicidades'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+        'sponsores' => [
+            'driver' => 'local',
+            //'root' => storage_path('app/public'),
+            'root' => public_path('img/sponsores'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',
